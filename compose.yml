@@ -7,8 +7,9 @@ services:
     tty: true
     stdin_open: true
     restart: unless-stopped
-    ports:
-      - "25565:25565"
+    # No host port binding; mc-router handles external routing on 25565
+    networks:
+      - dokploy-network
     environment:
       EULA: "TRUE"
       TYPE: "PAPER"
@@ -29,3 +30,7 @@ services:
     volumes:
       - "/opt/nijika-deablr/data:/data"
       - "./server-icon.png:/server-icon.png:ro"
+
+networks:
+  dokploy-network:
+    external: true
