@@ -9,7 +9,7 @@ services:
     restart: unless-stopped
     # No host port binding; mc-router handles external routing on 25565
     networks:
-      - dokploy-network
+      - deabcraft
     environment:
       EULA: "TRUE"
       TYPE: "PAPER"
@@ -32,5 +32,5 @@ services:
       - "./server-icon.png:/server-icon.png:ro"
 
 networks:
-  dokploy-network:
+  deabcraft:
     external: true
