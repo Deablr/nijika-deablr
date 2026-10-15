@@ -28,9 +28,9 @@ The server will be available on the default Minecraft port:
 Server settings are defined in [`compose.yml`](compose.yml). Key settings include:
 
 - **Server type:** Paper
-- **Minecraft version:** 1.26.1
+- **Minecraft version:** 26.3
 - **Memory:** 2 GB
-- **Plugins:** WorldEdit
+- **Plugins:** WorldEdit, Floodgate
 - **Data directory:** `/opt/nijika-deablr/data`
 
 To change settings, edit `compose.yml` and restart the container:
@@ -38,6 +38,12 @@ To change settings, edit `compose.yml` and restart the container:
 ```bash
 docker compose up -d
 ```
+
+## Bedrock Support
+
+Bedrock Edition players will be served by a shared [Geyser](https://geysermc.org/) instance running alongside mc-router (see [`handoff.md`](handoff.md); not deployed yet). This server only runs [Floodgate](https://geysermc.org/wiki/floodgate/), which lets Bedrock players join without a Java account. It does nothing until the shared Geyser is live.
+
+Bedrock player names are prefixed with `.` (e.g. `.Steve`). To op a Bedrock player, use their in-game name: `/op .Steve`.
 
 ## Server Icon
 

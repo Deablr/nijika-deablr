@@ -13,7 +13,7 @@ services:
     environment:
       EULA: "TRUE"
       TYPE: "PAPER"
-      VERSION: "26.1.2"
+      VERSION: "26.3"
       MEMORY: "2048M"
       MOTD: "A server for us"
       ICON: "/server-icon.png"
@@ -23,7 +23,8 @@ services:
       OPS: |-
         c1c43a34-eea1-44a6-8676-7f08b942939a
       PLUGINS: |-
-        https://hangarcdn.papermc.io/plugins/EngineHub/WorldEdit/versions/7.4.2/PAPER/worldedit-bukkit-7.4.2.jar
+        https://hangarcdn.papermc.io/plugins/EngineHub/WorldEdit/versions/7.4.6/PAPER/worldedit-bukkit-7.4.6.jar
+        https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/spigot
       HIDE_ONLINE_PLAYERS: "true"
       ENFORCE_SECURE_PROFILE: "false"
       SERVER_NAME: "Nijika Deablr Server"
