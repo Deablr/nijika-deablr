@@ -31,6 +31,11 @@ services:
     volumes:
       - "/opt/nijika-deablr/data:/data"
       - "./server-icon.png:/server-icon.png:ro"
+      # Shared Floodgate key; must match the one mounted into geyser-deablr so
+      # Bedrock joins forwarded by Geyser are trusted. Created by hand on the
+      # VPS (step 1 of handoff.md) — if it is missing, Docker creates a
+      # directory at this path and Floodgate breaks.
+      - "/opt/deablr/floodgate/key.pem:/data/plugins/floodgate/key.pem:ro"
 
 networks:
   dokploy-network:

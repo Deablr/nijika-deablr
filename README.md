@@ -41,7 +41,11 @@ docker compose up -d
 
 ## Bedrock Support
 
-Bedrock Edition players will be served by a shared [Geyser](https://geysermc.org/) instance running alongside mc-router (see [`handoff.md`](handoff.md); not deployed yet). This server only runs [Floodgate](https://geysermc.org/wiki/floodgate/), which lets Bedrock players join without a Java account. It does nothing until the shared Geyser is live.
+Bedrock Edition players join through a shared [Geyser](https://geysermc.org/) instance running in front of `mc-router` (see [`handoff.md`](handoff.md)). This server runs [Floodgate](https://geysermc.org/wiki/floodgate/), which lets Bedrock players join without a Java account.
+
+- Bedrock players connect to `nijika.deablr.com` with the default Bedrock port `19132`.
+- Floodgate authenticates the Bedrock players Geyser forwards using the shared Floodgate key, mounted read-only from `/opt/deablr/floodgate/key.pem` into the container at `/data/plugins/floodgate/key.pem`. The key must be created on the VPS before deploy (see `handoff.md` step 1) and must always match the key mounted into the shared Geyser.
+- Keep `ENFORCE_SECURE_PROFILE: "false"` (needed for Bedrock chat).
 
 Bedrock player names are prefixed with `.` (e.g. `.Steve`). To op a Bedrock player, use their in-game name: `/op .Steve`.
 
